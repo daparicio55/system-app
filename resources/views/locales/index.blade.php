@@ -9,6 +9,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 {{-- <x-welcome /> --}}
+
+                <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8">
+                    {{-- //mostrar los locales --}}
+                    @livewire('locales.list-locale')
+                </div>
             </div>
         </div>
     </div>

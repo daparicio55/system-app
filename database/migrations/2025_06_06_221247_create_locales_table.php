@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('locales', function (Blueprint $table) {
             $table->id();
+            $table->string('codigo')->unique();
+            $table->string('nombre');
             $table->timestamps();
         });
     }
