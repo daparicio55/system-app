@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'daparicio@idexperujapon.edu.pe',
             'password' => bcrypt('12345678'),
         ]);
+        $this->call(LocaleSeed::class);
     }
 }
