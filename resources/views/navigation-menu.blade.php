@@ -28,7 +28,7 @@
                         {{ __('Marcas') }}
                     </x-nav-link>
 
-                    <x-nav-link>
+                    <x-nav-link href="{{ route('administrador.proveedores.index') }}" :active="request()->routeIs('administrador.proveedores.index')">
                         {{ __('Proveedores') }}
                     </x-nav-link>
 

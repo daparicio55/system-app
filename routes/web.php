@@ -26,4 +26,8 @@ Route::middleware([
     Route::get('/administrador/marcas', function () {
         return view('administrador.marcas.index');
     })->name('administrador.marcas.index');
+
+    Route::get('/administrador/proveedores', function () {
+        return view('administrador.proveedores.index');
+    })->name('administrador.proveedores.index');
 });
