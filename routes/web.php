@@ -22,4 +22,8 @@ Route::middleware([
     Route::get('/administrador/medidas', function () {
         return view('administrador.medidas.index');
     })->name('administrador.medidas.index');
+
+    Route::get('/administrador/marcas', function () {
+        return view('administrador.marcas.index');
+    })->name('administrador.marcas.index');
 });

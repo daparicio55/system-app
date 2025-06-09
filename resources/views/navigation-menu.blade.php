@@ -24,11 +24,7 @@
                         {{ __('Medidas') }}
                     </x-nav-link>
 
-                    <x-nav-link>
-                        {{ __('Unidades') }}
-                    </x-nav-link>
-
-                    <x-nav-link>
+                    <x-nav-link href="{{ route('administrador.marcas.index') }}" :active="request()->routeIs('administrador.marcas.index')">
                         {{ __('Marcas') }}
                     </x-nav-link>
 
