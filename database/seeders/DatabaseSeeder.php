@@ -26,5 +26,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call(LocaleSeed::class);
         $this->call(ProveedoreSeed::class);
+        $this->call(MarcaSeed::class);
+        $this->call(MedidaSeed::class);
     }
 }
