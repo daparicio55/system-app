@@ -18,4 +18,8 @@ Route::middleware([
 
     Route::get('/locales',[LocaleController::class,'index'])
     ->name('locales.index');
+
+    Route::get('/administrador/medidas', function () {
+        return view('administrador.medidas.index');
+    })->name('administrador.medidas.index');
 });
