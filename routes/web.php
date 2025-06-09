@@ -30,4 +30,8 @@ Route::middleware([
     Route::get('/administrador/proveedores', function () {
         return view('administrador.proveedores.index');
     })->name('administrador.proveedores.index');
+
+    Route::get('/administrador/categorias', function () {
+        return view('administrador.categorias.index');
+    })->name('administrador.categorias.index');
 });

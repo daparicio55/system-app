@@ -28,5 +28,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProveedoreSeed::class);
         $this->call(MarcaSeed::class);
         $this->call(MedidaSeed::class);
+        $this->call(CategoriaSeed::class);
     }
 }
