@@ -1,6 +1,6 @@
 @props([
-    'model' => 'modal_create',
-    'store' => 'store',
+    'model' => 'modal_create_categoria',
+    'store' => 'store_categoria',
     'parent_categories'=> []
 ])
 <div>

@@ -7,7 +7,7 @@
     </div>
     @include('administrador.catalogos.create')
 
-    <x-administrador.categorias.create model="modal_create_categoria" :parent_categories="$categorias" store="store_categoria" />
+    <x-administrador.categorias.create :parent_categories="$categorias" />
     
     <div class="overflow-auto rounded-lg shadow">
         <table class="w-full">

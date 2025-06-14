@@ -5,7 +5,9 @@
         </x-button>
         <input type="text" wire:model.live="search" placeholder="Buscar por Nombre" class="w-1/2 border border-gray-300 rounded px-3 py-1 text-sm shadow">
     </div>
-    @include('administrador.categorias.create')
+    
+    <x-administrador.categorias.create :parent_categories="$parent_categories" />
+
     <div class="overflow-auto rounded-lg shadow">
         <table class="w-full">
             <thead class="border-b font-medium dark:border-neutral-500 bg-gray-800 text-white">

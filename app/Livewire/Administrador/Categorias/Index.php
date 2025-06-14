@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Administrador\Categorias;
 
+use App\CategoriaTrait;
 use App\Models\Categoria;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -9,18 +10,13 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
+    use CategoriaTrait;
 
     public $categoria_id;
-    public $array_categoria = [
-        'nombre' => '',
-        'descripcion' => '',
-        'categoria_id' => '',
-    ];
 
     public $parent_categories=[];
 
     public $search;
-    public $modal_create = false;
     public $modal_edit = false;
     public $modal_delete = false;
 
@@ -28,22 +24,7 @@ class Index extends Component
         $this->reset(['categoria_id', 'array_categoria']);
         $this->parent_categories = Categoria::orderBy('nombre','asc')
             ->get();
-        $this->modal_create = true;
-    }
-
-    public function store(){
-        $this->validate([
-            'array_categoria.nombre' => 'required|unique:categorias,nombre|max:255',
-            'array_categoria.descripcion' => 'nullable|string|max:255',
-            'array_categoria.categoria_id' => 'nullable|exists:categorias,id',
-        ]);
-
-        if (empty($this->array_categoria['categoria_id'])) {
-            $this->array_categoria['categoria_id'] = null; // Set to null if no parent category is selected
-        }
-
-        Categoria::create($this->array_categoria);
-        $this->modal_create = false;
+        $this->modal_create_categoria = true;
     }
 
     public function edit($id){
