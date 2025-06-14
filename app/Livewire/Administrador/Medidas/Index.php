@@ -2,48 +2,27 @@
 
 namespace App\Livewire\Administrador\Medidas;
 
+use App\MedidaTrait;
 use App\Models\Medida;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
-    public $medidas;
+    use MedidaTrait;
+    use WithPagination;
 
     public $medida_id;
 
-    public $array_medida = [
-        'nombre' => '',
-        'abreviatura' => ''
-    ];
+    public $search;
 
-    public $modal_create = false;
     public $modal_edit = false;
     public $modal_delete = false;
-
-    public function mount()
-    {
-        $this->medidas = Medida::orderBy('id', 'desc')
-            ->get();
-    }    
+  
 
     public function create(){
-        $this->reset(['array_medida', 'modal_create']);
-        $this->modal_create = true;
-    }
-
-    public function store(){
-        $this->validate([
-            'array_medida.nombre' => 'required|string|max:255',
-            'array_medida.abreviatura' => 'required|string|max:255',
-        ]);
-
-        Medida::create($this->array_medida);
-
-        $this->reset(['array_medida', 'modal_create']);
-        $this->medidas = Medida::orderBy('id', 'desc')
-            ->get();
-
-        session()->flash('message', 'Medida creada exitosamente.');
+        $this->reset(['array_medida']);
+        $this->modal_create_medida = true;
     }
 
     public function edit($id){
@@ -62,8 +41,6 @@ class Index extends Component
         $medida->update($this->array_medida);
 
         $this->reset(['array_medida', 'modal_edit']);
-        $this->medidas = Medida::orderBy('id', 'desc')
-            ->get();
 
         session()->flash('message', 'Medida actualizada exitosamente.');
     }
@@ -81,14 +58,19 @@ class Index extends Component
         $medida->delete();
 
         $this->reset(['array_medida', 'modal_delete']);
-        $this->medidas = Medida::orderBy('id', 'desc')
-            ->get();
 
         session()->flash('message', 'Medida eliminada exitosamente.');
     }
 
     public function render()
     {
-        return view('livewire.administrador.medidas.index');
+        $medidas = Medida::query()
+            ->when($this->search,function($query) {
+                $query->where('nombre', 'like', '%' . $this->search . '%')
+                      ->orWhere('abreviatura', 'like', '%' . $this->search . '%');
+            })
+            ->orderBy('nombre', 'asc')
+            ->paginate(10);
+        return view('livewire.administrador.medidas.index', compact('medidas'));
     }
 }

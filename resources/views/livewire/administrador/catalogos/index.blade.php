@@ -10,7 +10,9 @@
     <x-administrador.categorias.create :parent_categories="$categorias" />
 
     <x-administrador.marcas.create />
-    
+
+    <x-administrador.medidas.create />
+
     <div class="overflow-auto rounded-lg shadow">
         <table class="w-full">
             <thead class="border-b font-medium dark:border-neutral-500 bg-gray-800 text-white">

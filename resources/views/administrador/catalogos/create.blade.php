@@ -5,6 +5,12 @@
     <x-slot name="content">
         <div class="space-y-4">
             <div>
+                <x-label for="codigo" value="{{ __('Código') }}" />
+                <x-input class="mt-1 block w-full" wire:model.defer="array_catalogo.codigo" />
+                <x-input-error for="array_catalogo.codigo" class="mt-2" />
+            </div>
+
+            <div>
                 <x-label for="nombre" value="{{ __('Nombre') }}" />
                 <x-input class="mt-1 block w-full" wire:model.defer="array_catalogo.nombre" />
                 <x-input-error for="array_catalogo.nombre" class="mt-2" />
@@ -15,6 +21,7 @@
                 <x-input class="mt-1 block w-full" wire:model.defer="array_catalogo.descripcion"></x-input>
                 <x-input-error for="array_catalogo.descripcion" class="mt-2" />
             </div>
+
             <div>
                 <x-label for="categoria_id" value="{{ __('Categoría') }}" />
                 <x-select wire:model.defer="array_catalogo.categoria_id">
@@ -28,6 +35,7 @@
                 </x-button>
                 <x-input-error for="array_catalogo.categoria_id" class="mt-2" />
             </div>
+
             <div>
                 <x-label for="marca_id" value="{{ __('Marca') }}" />
                 <x-select wire:model.defer="array_catalogo.marca_id">
@@ -40,6 +48,21 @@
                     {{ __('Crear Nueva Marca') }}
                 </x-button>
             </div>
+
+            <div>
+                <x-label for="medida_id" value="{{ __('Medida') }}" />
+                <x-select wire:model.defer="array_catalogo.medida_id">
+                    <option value="">-- Seleccione Medida --</option>
+                    @foreach ($medidas as $medida)
+                        <option value="{{ $medida['id'] }}">{{ $medida['nombre'] }}</option>
+                    @endforeach
+                </x-select>
+                <x-button class="mt-2" wire:click="modalCreateMedida">
+                    {{ __('Crear Nueva Medida') }}
+                </x-button>
+                <x-input-error for="array_catalogo.medida_id" class="mt-2" />
+            </div>
+
         </div>
     </x-slot>
     <x-slot name="footer">

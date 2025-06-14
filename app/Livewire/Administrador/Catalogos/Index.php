@@ -4,6 +4,7 @@ namespace App\Livewire\Administrador\Catalogos;
 
 use App\CategoriaTrait;
 use App\MarcaTrait;
+use App\MedidaTrait;
 use App\Models\Catalogo;
 use App\Models\Categoria;
 use App\Models\Marca;
@@ -13,6 +14,7 @@ class Index extends Component
 {
     use CategoriaTrait;
     use MarcaTrait;
+    use MedidaTrait;
 
     public $catalogo_id;
     public $array_catalogo = [
@@ -28,6 +30,7 @@ class Index extends Component
 
     public $categorias = [];
     public $marcas = [];
+    public $medidas = [];
 
     public $search;
     public $modal_create = false;
