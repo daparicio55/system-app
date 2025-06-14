@@ -34,4 +34,8 @@ Route::middleware([
     Route::get('/administrador/categorias', function () {
         return view('administrador.categorias.index');
     })->name('administrador.categorias.index');
+
+    Route::get('/administrador/catalogos', function () {
+        return view('administrador.catalogos.index');
+    })->name('administrador.catalogos.index');
 });
