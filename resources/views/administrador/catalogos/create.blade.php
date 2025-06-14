@@ -28,6 +28,18 @@
                 </x-button>
                 <x-input-error for="array_catalogo.categoria_id" class="mt-2" />
             </div>
+            <div>
+                <x-label for="marca_id" value="{{ __('Marca') }}" />
+                <x-select wire:model.defer="array_catalogo.marca_id">
+                    <option value="">-- Seleccione Marca --</option>
+                    @foreach ($marcas as $marca)
+                        <option value="{{ $marca['id'] }}">{{ $marca['nombre'] }}</option>
+                    @endforeach
+                </x-select>
+                <x-button class="mt-2" wire:click="modalCreateMarca">
+                    {{ __('Crear Nueva Marca') }}
+                </x-button>
+            </div>
         </div>
     </x-slot>
     <x-slot name="footer">

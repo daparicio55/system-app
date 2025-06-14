@@ -8,6 +8,8 @@
     @include('administrador.catalogos.create')
 
     <x-administrador.categorias.create :parent_categories="$categorias" />
+
+    <x-administrador.marcas.create />
     
     <div class="overflow-auto rounded-lg shadow">
         <table class="w-full">

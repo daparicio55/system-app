@@ -3,13 +3,16 @@
 namespace App\Livewire\Administrador\Catalogos;
 
 use App\CategoriaTrait;
+use App\MarcaTrait;
 use App\Models\Catalogo;
 use App\Models\Categoria;
+use App\Models\Marca;
 use Livewire\Component;
 
 class Index extends Component
 {
     use CategoriaTrait;
+    use MarcaTrait;
 
     public $catalogo_id;
     public $array_catalogo = [
@@ -24,6 +27,7 @@ class Index extends Component
     ];
 
     public $categorias = [];
+    public $marcas = [];
 
     public $search;
     public $modal_create = false;
@@ -34,6 +38,8 @@ class Index extends Component
     {
         $this->reset(['catalogo_id', 'array_catalogo']);
         $this->categorias = Categoria::orderBy('nombre', 'asc')
+            ->get();
+        $this->marcas = Marca::orderBy('nombre', 'asc')
             ->get();
         $this->modal_create = true;
     }

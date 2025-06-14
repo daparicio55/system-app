@@ -3,8 +3,11 @@
         <x-button wire:click="create" wire:loading.attr="disabled">
             Crear Marca
         </x-button>
+        <input type="text" wire:model.live="search" placeholder="Buscar por Nombre" class="w-1/2 border border-gray-300 rounded px-3 py-1 text-sm shadow">
     </div>
-    @include('administrador.marcas.create')
+
+    <x-administrador.marcas.create />
+
     <div class="overflow-auto rounded-lg shadow">
         <table class="w-full">
             <thead class="border-b font-medium dark:border-neutral-500 bg-gray-800 text-white">
@@ -25,13 +28,21 @@
                             <x-button wire:click="edit({{ $marca->id }})" class="me-1">
                                 Editar
                             </x-button>
-                            <x-button wire:click="deleteConfirmation({{ $marca->id }})" class="bg-red-600 hover:bg-red-700">
+                            <x-button wire:click="deleteConfirmation({{ $marca->id }})"
+                                class="bg-red-600 hover:bg-red-700">
                                 Eliminar
                             </x-button>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="px-3 py-2 text-center">
+                        {{ $marcas->links() }}
+                    </td>
+                </tr>
+            </tfoot>
         </table>
         @include('administrador.marcas.edit')
         @include('administrador.marcas.delete')
