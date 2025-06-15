@@ -20,6 +20,10 @@
                     <th scope="col" class="text-left pl-2 pt-2 pb-2">Código</th>
                     <th scope="col" class="text-left pl-2 pt-2 pb-2">Nombre</th>
                     <th scope="col" class="text-left pl-2 pt-2 pb-2">Descripción</th>
+                    <th scope="col" class="text-left pl-2 pt-2 pb-2">Marca</th>
+                    <th scope="col" class="text-left pl-2 pt-2 pb-2">Medida</th>
+                    <th scope="col" class="text-left pl-2 pt-2 pb-2">Categoría</th>
+                    <th scope="col" class="text-left pl-2 pt-2 pb-2">Contiene</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -29,6 +33,10 @@
                         <td class="px-3 py-2">{{ $catalogo->codigo }}</td>
                         <td class="px-3 py-2">{{ $catalogo->nombre }}</td>
                         <td class="px-3 py-2">{{ $catalogo->descripcion }}</td>
+                        <td class="px-3 py-2">{{ $catalogo->marca->nombre ?? 'N/A' }}</td>
+                        <td class="px-3 py-2">{{ $catalogo->medida->nombre ?? 'N/A' }}</td>
+                        <td class="px-3 py-2">{{ $catalogo->categoria->nombre ?? 'N/A' }}</td>
+                        <td class="px-3 py-2">{{ $catalogo->contiene }}</td>
                         <td class="flex justify-end pr-2 pt-2 pb-2">
                             <x-button wire:click="edit({{ $catalogo->id }})" class="me-1">
                                 Editar
