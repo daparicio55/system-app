@@ -1,11 +1,13 @@
 <div class="p-6">
     <div class="flex justify-between items-center mb-4">
-        <x-button wire:click="create" wire:loading.attr="disabled">
+        <x-button wire:click="modalCreateCatalogo" wire:loading.attr="disabled">
             Crear Catálogo
         </x-button>
         <input type="text" wire:model.live="search" placeholder="Buscar por Nombre" class="w-1/2 border border-gray-300 rounded px-3 py-1 text-sm shadow">
     </div>
-    @include('administrador.catalogos.create')
+    {{-- @include('administrador.catalogos.create') --}}
+    <x-administrador.catalogos.create :parent_categories="$catalogos" :categorias="$categorias" :marcas="$marcas" :medidas="$medidas" />
+
 
     <x-administrador.categorias.create :parent_categories="$categorias" />
 
