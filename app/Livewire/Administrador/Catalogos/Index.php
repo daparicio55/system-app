@@ -49,6 +49,20 @@ class Index extends Component
         $this->modal_create_catalogo = true;
     }
     
+    public function setCatalogoPadre(){
+        
+        $catalogo = Catalogo::find($this->array_catalogo['catalogo_id']);
+        $this->array_catalogo = [
+            'marca_id' => $catalogo->marca_id,
+            'categoria_id' => $catalogo->categoria_id,
+            'nombre' => $catalogo->nombre,
+            'descripcion' => $catalogo->descripcion,
+            'catalogo_id' => $catalogo->id,
+        ];
+
+    }
+
+
     public function store_catalogo(){
         $this->validate([
             'array_catalogo.codigo' => 'required|string|max:255|unique:catalogos,codigo',

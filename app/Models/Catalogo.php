@@ -20,6 +20,11 @@ class Catalogo extends Model
         'catalogo_id',
     ];
 
+    public function getPrecioAttribute($value)
+    {
+        return number_format($value, 2, '.', '');
+    }
+    
     public function parent()
     {
         return $this->belongsTo(Catalogo::class, 'catalogo_id');

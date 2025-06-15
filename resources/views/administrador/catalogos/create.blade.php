@@ -7,7 +7,7 @@
             <div class="sm:col-span-3">
                 {{-- catalogo padre --}}
                 <x-label for="catalogo_id" value="{{ __('Catálogo Padre') }}" />
-                <x-select wire:model.defer="array_catalogo.catalogo_id">
+                <x-select wire:model.defer="array_catalogo.catalogo_id" wire:change="setCatalogoPadre">
                     <option value="">-- Seleccione Catálogo Padre --</option>
                     @foreach ($catalogos as $catalogo)
                         <option value="{{ $catalogo['id'] }}">
