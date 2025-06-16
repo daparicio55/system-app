@@ -32,6 +32,9 @@ class Index extends Component
     public $modal_edit = false;
     public $modal_delete = false;
     
+    public function edit(){
+        $this->modal_edit = true;
+    }
     public function render()
     {
         $catalogos = Catalogo::query()
