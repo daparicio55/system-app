@@ -1,7 +1,7 @@
 @props([
     'model' => 'modal_create_catalogo',
     'store' => 'store_catalogo',
-    'parent_categories'=> [],
+    'parent_catalogos' => [],
     'categorias' => [],
     'marcas' => [],
     'medidas' => [],
@@ -18,8 +18,8 @@
                     <x-label for="catalogo_id" value="{{ __('Catálogo Padre') }}" />
                     <x-select wire:model.defer="array_catalogo.catalogo_id" wire:change="setCatalogoPadre">
                         <option value="">-- Seleccione Catálogo Padre --</option>
-                        @foreach ($parent_categories as $catalogo)
-                            <option value="{{ $catalogo['id'] }}">
+                        @foreach ($parent_catalogos as $catalogo)
+                            <option  value="{{ $catalogo['id'] }}">
                                 X {{ $catalogo['medida']['nombre'] ?? 'N/A' }}
                                 -
                                 {{ $catalogo['codigo'] }}

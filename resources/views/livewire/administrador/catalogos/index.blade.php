@@ -6,8 +6,7 @@
         <input type="text" wire:model.live="search" placeholder="Buscar por Nombre" class="w-1/2 border border-gray-300 rounded px-3 py-1 text-sm shadow">
     </div>
     {{-- @include('administrador.catalogos.create') --}}
-    <x-administrador.catalogos.create :parent_categories="$catalogos" :categorias="$categorias" :marcas="$marcas" :medidas="$medidas" />
-
+    <x-administrador.catalogos.create :parent_catalogos="$catalogos" :categorias="$categorias" :marcas="$marcas" :medidas="$medidas" />
 
     <x-administrador.categorias.create :parent_categories="$categorias" />
 

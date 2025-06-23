@@ -7,10 +7,10 @@
             <div class="sm:col-span-3">
                 {{-- catalogo padre --}}
                 <x-label for="catalogo_id" value="{{ __('Catálogo Padre') }}" />
-                <x-select wire:model.defer="array_catalogo.catalogo_id" wire:change="setCatalogoPadre">
-                    <option value="">-- Seleccione Catálogo Padre --</option>
-                    @foreach ($parent_categories as $catalogo)
-                        <option value="{{ $catalogo['id'] }}">
+                <x-select wire:model="array_catalogo.catalogo_id">
+                    <option wire:key="edit-catalogo" value="">-- Seleccione Catálogo Padre --</option>
+                    @foreach ($catalogos as $catalogo)
+                        <option wire:key="edit-catalogo-{{ $catalogo['id'] }}" value="{{ $catalogo['id'] }}">
                             X {{ $catalogo['medida']['nombre'] ?? 'N/A' }}
                             -
                             {{ $catalogo['codigo'] }}
@@ -27,11 +27,11 @@
             </div>
 
             <div>
-                <x-label for="categoria_id" value="{{ __('Categoría') }}" />
-                <x-select wire:model.defer="array_catalogo.categoria_id">
-                    <option value="">-- Seleccione Categoría --</option>
+                <x-label for="array_catalogo.categoria_id" value="{{ __('Categoría') }}" />
+                <x-select wire:model="array_catalogo.categoria_id">
+                    <option wire:key="edit-categoria">-- Seleccione Categoría --</option>
                     @foreach ($categorias as $categoria)
-                        <option value="{{ $categoria['id'] }}">{{ $categoria['nombre'] }}</option>
+                        <option wire:key="edit-categoria-{{ $categoria['id'] }}" value="{{ $categoria['id'] }}">{{ $categoria['nombre'] }}</option>
                     @endforeach
                 </x-select>
                 <x-button class="mt-2" wire:click="modalCreateCategoria">
@@ -43,9 +43,9 @@
             <div>
                 <x-label for="marca_id" value="{{ __('Marca') }}" />
                 <x-select wire:model.defer="array_catalogo.marca_id">
-                    <option value="">-- Seleccione Marca --</option>
+                    <option wire:key="edit-marca" value="">-- Seleccione Marca --</option>
                     @foreach ($marcas as $marca)
-                        <option value="{{ $marca['id'] }}">{{ $marca['nombre'] }}</option>
+                        <option wire:key="edit-marca-{{ $marca['id'] }}" value="{{ $marca['id'] }}">{{ $marca['nombre'] }}</option>
                     @endforeach
                 </x-select>
                 <x-button class="mt-2" wire:click="modalCreateMarca">
@@ -56,10 +56,10 @@
 
             <div>
                 <x-label for="medida_id" value="{{ __('Medida') }}" />
-                <x-select wire:model.defer="array_catalogo.medida_id">
-                    <option value="">-- Seleccione Medida --</option>
+                <x-select wire:model="array_catalogo.medida_id">
+                    <option value="" wire:key="edit-medida" >-- Seleccione Medida --</option>
                     @foreach ($medidas as $medida)
-                        <option value="{{ $medida['id'] }}">{{ $medida['nombre'] }}</option>
+                        <option wire:key="edit-medida-{{ $medida['id'] }}" value="{{ $medida['id'] }}">{{ $medida['nombre'] }}</option>
                     @endforeach
                 </x-select>
                 <x-button class="mt-2" wire:click="modalCreateMedida">
@@ -102,6 +102,6 @@
         </div>
     </x-slot>
     <x-slot name="footer">
-        <x-modal-buttons model="{{ $model }}" store="{{ $store }}" />
+        <x-modal-buttons model="modal_edit" store="update({{ $catalogo->id }})" />
     </x-slot>
 </x-dialog-modal>

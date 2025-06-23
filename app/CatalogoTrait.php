@@ -9,18 +9,11 @@ use App\Models\Medida;
 
 trait CatalogoTrait
 {
-    public $array_catalogo = [
-        'codigo' => '',
-        'nombre' => '',
-        'descripcion' => '',
-        'categoria_id' => '',
-        'marca_id' => '',
-        'medida_id' => '',
-        'activo' => true,
-        'precio' => 0.00,
-        'contiene' => 1,
-        'image_path' => null,
-    ];
+    public $array_catalogo = [];
+
+    public $categorias = [];
+    public $marcas = [];
+    public $medidas = [];
 
     public $modal_create_catalogo = false;
 
@@ -30,17 +23,22 @@ trait CatalogoTrait
 
         $this->reset(['catalogo_id', 'array_catalogo']);
 
-        $this->categorias = Categoria::orderBy('nombre', 'asc')
-            ->get();
-
-        $this->marcas = Marca::orderBy('nombre', 'asc')
-            ->get();
-
-        $this->medidas = Medida::orderBy('nombre', 'asc')
-            ->get();
+        $this->getDataToSelects();
 
         $this->modal_create_catalogo = true;
     }
+
+    public function getDataToSelects(){
+        $this->categorias = Categoria::orderBy('nombre', 'asc')
+            ->get()->toArray();
+
+        $this->marcas = Marca::orderBy('nombre', 'asc')
+            ->get()->toArray();
+
+        $this->medidas = Medida::orderBy('nombre', 'asc')
+            ->get()->toArray();
+    }
+
 
     public function setCatalogoPadre()
     {
