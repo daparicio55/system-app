@@ -20,6 +20,13 @@ class Catalogo extends Model
         'catalogo_id',
     ];
 
+    public function compras()
+    {
+        return $this->belongsToMany(Compra::class, 'catalogo_compra', 'catalogo_id', 'compra_id')
+            ->withPivot('cantidad', 'precio_unitario')
+            ->withTimestamps();
+    }
+
     public function getPrecioAttribute($value)
     {
         return number_format($value, 2, '.', '');

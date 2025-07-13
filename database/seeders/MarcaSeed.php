@@ -14,6 +14,7 @@ class MarcaSeed extends Seeder
     public function run(): void
     {
         $marcas = [
+            ['nombre'=>'Satra','descripcion'=>'Fabricante de Componentes de Redes'],
             ['nombre' => 'Intel', 'descripcion' => 'Fabricante líder de microprocesadores y chips para computadoras.'],
             ['nombre' => 'AMD', 'descripcion' => 'Competidor de Intel, conocido por procesadores y tarjetas gráficas.'],
             ['nombre' => 'NVIDIA', 'descripcion' => 'Especialista en unidades de procesamiento gráfico (GPU).'],

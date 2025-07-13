@@ -102,6 +102,6 @@
         </div>
     </x-slot>
     <x-slot name="footer">
-        <x-modal-buttons model="modal_edit" store="update({{ $catalogo->id }})" />
+        <x-modal-buttons model="modal_edit" store="update({{ $catalogo_id }})" />
     </x-slot>
 </x-dialog-modal>

@@ -1,7 +1,11 @@
 <?php
 
 return [
-
+    /* 
+    Perú dev token para consultas de DNI y RUC.
+    */
+    'peru_dev_token' => env('PERU_DEV_TOKEN', ''),
+    'peru_dev_url_ruc' => env('PERU_DEV_URL_RUC',''),
     /*
     |--------------------------------------------------------------------------
     | Application Name

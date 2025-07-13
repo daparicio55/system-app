@@ -38,4 +38,13 @@ Route::middleware([
     Route::get('/administrador/catalogos', function () {
         return view('administrador.catalogos.index');
     })->name('administrador.catalogos.index');
+
+    Route::get('/administrador/compras', function () {
+        return view('administrador.compras.index');
+    })->name('administrador.compras.index');
+
+    Route::get('/administrador/compras/create', function () {
+        return view('administrador.compras.create');
+    })->name('administrador.compras.create');
+
 });

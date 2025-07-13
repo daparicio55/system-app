@@ -64,9 +64,16 @@ class MedidaSeed extends Seeder
             ['nombre' => 'Par', 'abreviatura' => 'par'],
             ['nombre' => 'Centímetro cúbico', 'abreviatura' => 'cm³'],
             ['nombre' => 'Galón', 'abreviatura' => 'gal'],
+            ['nombre' => 'Caja',     'abreviatura' => 'CJA'],
+            ['nombre' => 'Paquete',  'abreviatura' => 'PAQ'],
+            ['nombre' => 'Bolsa',    'abreviatura' => 'BOL'],
+            ['nombre' => 'Lata',     'abreviatura' => 'LAT'],
+            ['nombre' => 'Botella',  'abreviatura' => 'BOT'],
+            ['nombre' => 'Bulto',    'abreviatura' => 'BLT'],
+            ['nombre' => 'Saco',     'abreviatura' => 'SAC'],
         ];
         foreach ($medidas as $medida) {
-           Medida::create($medida);
+            Medida::create($medida);
         }
         $this->command->info('Medidas creadas exitosamente.');
     }

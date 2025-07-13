@@ -32,4 +32,9 @@ class Proveedore extends Model
     {
         return strtoupper($value);
     }
+
+    public function compras()
+    {
+        return $this->hasMany(Compra::class, 'proveedore_id');
+    }
 }
