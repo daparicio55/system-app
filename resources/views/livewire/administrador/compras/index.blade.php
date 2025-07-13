@@ -3,7 +3,8 @@
         <x-button wire:click="create" wire:loading.attr="disabled">
             Registrar Compra
         </x-button>
-        <input type="text" wire:model.live="search" placeholder="Buscar por Nombre" class="w-1/2 border border-gray-300 rounded px-3 py-1 text-sm shadow">
+        <input type="text" wire:model.live="search" placeholder="Buscar por Nombre"
+            class="w-1/2 border border-gray-300 rounded px-3 py-1 text-sm shadow">
     </div>
 
     <div class="overflow-auto rounded-lg shadow">
@@ -14,8 +15,6 @@
                     <th scope="col" class="text-left pl-2 pt-2 pb-2">Proveedor</th>
                     <th scope="col" class="text-left pl-2 pt-2 pb-2">Fecha</th>
                     <th scope="col" class="text-left pl-2 pt-2 pb-2">IGV</th>
-{{--                     <th scope="col" class="text-left pl-2 pt-2 pb-2">Sub Total</th>
-                    <th scope="col" class="text-left pl-2 pt-2 pb-2">IGV</th> --}}
                     <th scope="col" class="text-left pl-2 pt-2 pb-2">Total</th>
                     <th scope="col" class="text-left pl-2 pt-2 pb-2">Pagado</th>
                     <th scope="col"></th>
@@ -28,14 +27,12 @@
                         <td class="px-3 py-2">{{ $compra->proveedore->razon_social }}</td>
                         <td class="px-3 py-2">{{ $compra->fecha }}</td>
                         <td class="px-3 py-2">{{ $compra->igv ? 'Sí' : 'No' }}</td>
-{{--                         <td class="px-3 py-2">S/ {{ number_format($compra->subtotal, 2) }}</td>
-                        <td class="px-3 py-2">S/ {{ number_format($compra->Igvtotal, 2) }}</td> --}}
                         <td class="px-3 py-2">S/ {{ number_format($compra->subtotal + $compra->Igvtotal, 2) }}</td>
                         <td class="px-3 py-2">{{ $compra->pagado ? 'Sí' : 'No' }}</td>
                         <td class="flex justify-end pr-2 pt-2 pb-2">
-                            <x-button wire:click="edit({{ $compra->id }})" class="me-1">
+                            {{-- <x-button wire:click="edit({{ $compra->id }})" class="me-1">
                                 Editar
-                            </x-button>
+                            </x-button> --}}
                             <x-button wire:click="deleteConfirmation({{ $compra->id }})"
                                 class="bg-red-600 hover:bg-red-700">
                                 Eliminar
@@ -52,7 +49,6 @@
                 </tr>
             </tfoot>
         </table>
-        {{-- @include('administrador.marcas.edit')
-        @include('administrador.marcas.delete') --}}
+        @include('livewire.administrador.compras.delete')
     </div>
 </div>
