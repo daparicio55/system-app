@@ -47,4 +47,7 @@ Route::middleware([
         return view('administrador.compras.create');
     })->name('administrador.compras.create');
 
+    Route::get('/usuarios/ventas',function(){
+        return view('usuarios.ventas.index');
+    })->name('usuarios.ventas.index');
 });
