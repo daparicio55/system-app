@@ -33,6 +33,9 @@
                             {{-- <x-button wire:click="edit({{ $compra->id }})" class="me-1">
                                 Editar
                             </x-button> --}}
+                            <x-button class="me-1" wire:click="show({{ $compra->id }})">
+                                Ver
+                            </x-button>
                             <x-button wire:click="deleteConfirmation({{ $compra->id }})"
                                 class="bg-red-600 hover:bg-red-700">
                                 Eliminar
@@ -50,5 +53,7 @@
             </tfoot>
         </table>
         @include('livewire.administrador.compras.delete')
+        @include('livewire.administrador.compras.show')
+
     </div>
 </div>

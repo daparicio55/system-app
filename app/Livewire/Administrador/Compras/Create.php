@@ -76,7 +76,7 @@ class Create extends Component
             'fecha' => $this->array_compra['fecha'],
             'igv' => $this->array_compra['igv'] ?? false,
             'pagado' => $this->array_compra['pagado'] ?? false,
-            'usuario_id' => Auth::id()
+            'user_id' => Auth::id()
         ]);
 
         //ahora agregamos los productos a la compra

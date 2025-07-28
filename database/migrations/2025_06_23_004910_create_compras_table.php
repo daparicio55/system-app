@@ -19,7 +19,7 @@ return new class extends Migration
             $table->boolean('igv')->default(true);
             $table->unique(['numero_factura', 'proveedore_id']);
             $table->foreignId('proveedore_id')->constrained('proveedores');
-            $table->foreignId('usuario_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

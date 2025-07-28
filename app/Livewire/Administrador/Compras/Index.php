@@ -12,6 +12,8 @@ class Index extends Component
 
     public $modal_delete = false;
 
+    public $modal_show = false;
+
     public $array_compra = [
         'id' => null,
         'numero_factura' => '',
@@ -25,6 +27,18 @@ class Index extends Component
         return redirect()->route('administrador.compras.create');
     }
     
+    public function show($id)
+    {
+        $compra = Compra::find($id);
+        if ($compra) {
+            $this->array_compra = $compra;
+            //dd($this->array_compra);
+            $this->modal_show = true;
+        } else {
+            session()->flash('error', 'Compra no encontrada.');
+        }
+    }
+
     public function deleteConfirmation($id){
         $compra = Compra::find($id);
         if ($compra) {
