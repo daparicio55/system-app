@@ -55,7 +55,7 @@
                             wire:model.defer="producto_seleccionado_cantidad" placeholder="Ingrese la cantidad" />
                         <x-input-error for="producto_seleccionado_cantidad" class="mt-2" />
                     </div>
-                    <div class="div">
+                    <div>
                         <x-label for="precio" value="{{ __('Precio') }}" />
                         <x-input class="mt-1 block w-full" type="number"
                             wire:model.defer="producto_seleccionado_precio" placeholder="Ingrese el precio" />

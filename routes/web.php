@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -47,7 +48,7 @@ Route::middleware([
         return view('administrador.compras.create');
     })->name('administrador.compras.create');
 
-    Route::get('/usuarios/ventas',function(){
-        return view('usuarios.ventas.index');
-    })->name('usuarios.ventas.index');
+    Route::get('/usuarios/ventas', [UsuarioController::class, 'index'])->name('usuarios.ventas.index');
+
+    Route::get('/usuarios/ventas/create', [UsuarioController::class, 'create'])->name('usuarios.ventas.create');
 });
