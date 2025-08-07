@@ -4,4 +4,9 @@
             Regresar
         </x-danger-button>
     </div>
+
+    <div class="overflow-auto rounded-lg shadow p-4">
+        @include('livewire.usuarios.ventas.partials.cliente')
+    </div>
+    
 </div>
