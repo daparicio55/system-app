@@ -22,6 +22,15 @@ class Create extends Component
         'telefono' => '',
     ];
 
+    public $array_venta = [
+        'id' => 0,
+        'cliente_id' => 0,
+        'fecha' => '',
+        'tipo_comprobante' => '',
+        'numero' => '',
+        'tipo_pago' => '',
+    ];
+
     public function buscar_cliente()
     {
         $this->validate([
@@ -53,8 +62,30 @@ class Create extends Component
         return Redirect::route('usuarios.ventas.index');
     }
 
+    public function store(){
+        $this->validate([
+            'array_cliente.dni_ruc' => 'required',
+            'array_cliente.nombres' => 'required',
+            'array_cliente.apellido_paterno' => 'required',
+            'array_cliente.apellido_materno' => 'required',
+            'array_cliente.direccion' => 'required',
+            'array_cliente.telefono' => 'required',
+        ]);
+
+        $this->validate([
+            'array_venta.tipo_comprobante' => 'required',
+            'array_venta.fecha' => 'required|date',
+            'array_venta.numero' => 'numeric',
+            'array_venta.tipo_pago' => 'required',
+        ]);
+        dd($this->array_cliente);
+
+
+    }
+
     public function render()
     {
+        $this->array_venta['fecha'] = now()->format('Y-m-d');
         return view('livewire.usuarios.ventas.create');
     }
 }

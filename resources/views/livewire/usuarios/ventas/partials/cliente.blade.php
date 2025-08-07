@@ -3,7 +3,7 @@
         <x-label for="dni_ruc" value="{{ __('DNI/RUC') }}" />
         <x-input class="mt-1 block w-full" wire:model.defer="dni_ruc" />
         <x-input-error for="dni_ruc" class="mt-2" />
-        <x-button class="mt-2" wire:click="buscar_cliente" wire:loading.attr="disabled">
+        <x-button type="button" class="mt-2" wire:click="buscar_cliente" wire:loading.attr="disabled">
             Buscar Cliente
         </x-button>
     </div>
