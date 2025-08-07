@@ -6,6 +6,7 @@ return [
     */
     'peru_dev_token' => env('PERU_DEV_TOKEN', ''),
     'peru_dev_url_ruc' => env('PERU_DEV_URL_RUC',''),
+    'peru_dev_url_dni' => env('PERU_DEV_URL_DNI',''),
     /*
     |--------------------------------------------------------------------------
     | Application Name
