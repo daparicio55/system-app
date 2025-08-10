@@ -19,6 +19,7 @@ return new class extends Migration
             $table->enum('tipo_comprobante', ['Ticket', 'Boleta', 'Factura']);
             $table->string('numero');
             $table->enum('tipo_pago', ['Efectivo','Yape', 'Plin', 'Tarjeta', 'Transferencia']);
+            $table->unique(['tipo_comprobante', 'numero'], 'ventas_unique_comprobante');
             $table->timestamps();
         });
     }

@@ -127,6 +127,10 @@ class Create extends Component
         }
     }
 
+    public function setProducto(){
+        
+    }
+
     public function setTotal(){
         $this->productos_total = $this->productos_subtotal + $this->productos_igv;
     }

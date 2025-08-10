@@ -53,6 +53,11 @@ trait CatalogoTrait
         ];
     }
 
+    public function getCatalogoDescripcion($catalogo)
+    {
+        return $catalogo->codigo . ' - ' . $catalogo->nombre . '- ' . $catalogo->descripcion . ' - ' . $catalogo->marca->nombre . ' - ' . $catalogo->categoria->nombre . ' - X' . $catalogo->medida->nombre;
+    }
+
     public function store_catalogo()
     {
         $this->validate([

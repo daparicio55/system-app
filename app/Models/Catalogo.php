@@ -27,6 +27,12 @@ class Catalogo extends Model
             ->withTimestamps();
     }
 
+    public function ventas(){
+        return $this->belongsToMany(Venta::class, 'catalogo_venta', 'catalogo_id', 'venta_id')
+            ->withPivot('cantidad', 'precio_unitario')
+            ->withTimestamps();
+    }
+
     public function getPrecioAttribute($value)
     {
         return number_format($value, 2, '.', '');

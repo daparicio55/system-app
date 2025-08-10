@@ -11,7 +11,7 @@
     <ul x-show="mostrar" class="border border-gray-300 rounded mt-2 p-2 max-h-48 overflow-y-auto">
         <template x-for="item in filteredItems()" :key="item.id">
             <li class="cursor-pointer p-1 hover:bg-gray-100"
-                @click="$wire.set('{{ $wireModel }}', item.id); seleccionarItem(item)">
+                @click="$wire.set('{{ $wireModel }}', item.id); $wire.setProducto(item.id); seleccionarItem(item)">
                 <span x-text="item.nombre"></span>
             </li>
         </template>
